@@ -1,6 +1,7 @@
 import React from "react";
 import TeamMember from "./TeamMember";
 import TeamData from "./TeamData";
+import HomeMaterialUI from "../Pages/HomeMaterialUI";
 
 
 
@@ -8,7 +9,7 @@ const Team=()=>{
 
     
     const Members =  TeamData.call().map(member =>
-         <TeamMember 
+         <TeamMember
             key={member.id}
             img={member.img}
             name={member.name}
@@ -18,6 +19,9 @@ const Team=()=>{
             phone={member.phone}
             website={member.website}
             />
+
+
+            
           
     );
 

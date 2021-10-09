@@ -1,38 +1,95 @@
 import React from "react"
 import {Link} from 'react-router-dom';
+import { CssBaseline,AppBar,Toolbar,Typography,  } from "@material-ui/core";
+import useStyles from "../Styles/styleHomeMaterialUi";
+import { PhotoCamera } from "@material-ui/icons";
+import { styled , alpha } from '@mui/material/styles';
+import SearchIcon from '@mui/icons-material/Search';
+import InputBase from '@mui/material/InputBase';
+
 
 const HeaderPage = () =>{
+    const classes = useStyles();
+    const Search = styled('div')(({ theme }) => ({
+        position: 'relative',
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: alpha(theme.palette.common.white, 0.15),
+        '&:hover': {
+          backgroundColor: alpha(theme.palette.common.white, 0.25),
+        },
+        marginRight: theme.spacing(2),
+        marginLeft: 0,
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+          marginLeft: theme.spacing(3),
+          width: 'auto',
+        },
+      }));
+      
+      const SearchIconWrapper = styled('div')(({ theme }) => ({
+        padding: theme.spacing(0, 2),
+        height: '100%',
+        position: 'absolute',
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }));
+
+    const StyledInputBase = styled(InputBase)(({ theme }) => ({
+        color: 'inherit',
+        '& .MuiInputBase-input': {
+          padding: theme.spacing(1, 1, 1, 0),
+          // vertical padding + font size from searchIcon
+          paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+          transition: theme.transitions.create('width'),
+          width: '100%',
+          [theme.breakpoints.up('md')]: {
+            width: '20ch',
+          },
+        },
+      }));
     return (
     
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <Link className="navbar-brand" to="/Team" >Team Member</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                    <Link className="nav-link active" aria-current="page" to="/Social">
+        <CssBaseline>
+                <AppBar position="relative">
+                    <Toolbar>
+                        
+                        <PhotoCamera className={classes.icon}/> 
+                             <Link to="/Team" className={classes.Links}>
+                                <Typography veriant="h6" gutterBottom> 
+                                Team Members </Typography>
+                             </Link>
+                        
 
-                       Texts
-
-                    </Link>
-                    </li>
-                    <li className="nav-item">
-                    <Link className="nav-link" to='/Home'>Home</Link>
-                    </li>
-                    </ul>
+                        
+                            <Typography variant="h6" gutterBottom>
+                            <Link to='/Home' className={classes.Links} >Home
+                            </Link>
+                            </Typography>
+                        
+                        <Link to="/Social" className={classes.Links}>
+                             <Typography variant="h6" gutterBottom>Texts</Typography>
+                        </Link>
                     
-                <form className="d-flex">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                </div>
-            </div>
-            
-            </nav>
+                        <Search>
+                            <SearchIconWrapper>
+                            <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                            placeholder="Search…"
+                            inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </Search>
+                    </Toolbar>
+                    
+                </AppBar>
+        </CssBaseline>
+
+
+              
+                
     </div>
     );
     }

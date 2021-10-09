@@ -13,6 +13,6 @@ const TeamData= ()=>{
 
     return info;
 
-}
+};
 
 export default TeamData;
