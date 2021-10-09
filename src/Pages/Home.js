@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderPage from "./HeaderPage";
+import HomeMaterialUI from "./HomeMaterialUI";
 
-import PageNotFound from "./PageNotFound";
 
 const Home = () =>{
 
@@ -9,7 +9,8 @@ const Home = () =>{
     return (
         <>
              <HeaderPage />
-             <PageNotFound />
+             <HomeMaterialUI />
+
         
         </>
     )
